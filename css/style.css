@@ -1,0 +1,15 @@
+body{
+    background-image: url(../img/1920.jpg);
+}
+
+header{
+    height: 90px;
+}
+
+header img{
+    width: 200px;
+}
+
+main img{
+    height: 400px;
+}
