@@ -46,9 +46,12 @@
                             <label for="route" class="form-label">Km da percorrere</label>
                             <input type="text" class="form-control" id="route" placeholder="300">
                         </div>
-                        <div class="mb-3 col">
-                            <label for="age" class="form-label">Età</label>
-                            <input type="text" class="form-control" id="age" placeholder="56">
+                        <div class="col-12 mb-3">
+                            <select id="age" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option selected value="20">Maggiorenne</option>
+                                <option value="17">Minorenne</option>
+                                <option value="66">Senior</option>
+                            </select>
                         </div>
                         <div class="col-12">
                             <button id="generates" type="submit" class="btn btn-primary">Genera</button>
