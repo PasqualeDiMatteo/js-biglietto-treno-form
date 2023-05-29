@@ -25,45 +25,36 @@ const ageSenior = 65;
 const ageMinors = 18;
 const discountSenior = 40;
 const discountMinors = 20;
-// 2. 3. Ask Km and Age
+const userName = document.getElementById("user-name");
+const kilometers = document.getElementById("route");
+const userAge = document.getElementById("age");
+const generates = document.getElementById("generates");
+const cancel = document.getElementById("cancel");
 
-const userAge = parseInt(prompt("How old is the passenger?", "35"));
-const kilometers = parseInt(
-  prompt("How many kilometers do you have to travel?", "600")
-);
+// 2. 3. Ask Km, Age, Name
 
-console.log(userAge + " Age");
-console.log(kilometers + " Km");
+generates.addEventListener("click", function () {
+  const name = userName.value;
+  console.log("il nome è: " + name);
 
-// 4. Validation
-let isValid = true;
-let error = null;
+  const km = kilometers.value;
+  console.log("La tratta è di: " + km + "km");
 
-if (!kilometers) {
-  isValid = false;
-  error = "Km must be a number greater than 0.\n";
-}
+  const age = userAge.value;
+  console.log("Anni: " + age);
 
-if (!userAge || userAge < 1 || userAge > 104) {
-  isValid = false;
-  error += "You must enter an age ranging from 1 to 104.";
-}
+  // Calculate the Ticket Price
 
-// 5. 6. 7. 8. Calculated the price of the ticket and the discounted ticket
-
-if (!isValid) {
-  alert(error);
-} else {
-  let priceTicket = kilometers * priceKm;
-  console.log(priceTicket.toFixed(2));
+  let priceTicket = km * priceKm;
+  console.log(priceTicket);
 
   let priceDiscounted = priceTicket;
 
-  if (userAge < ageMinors) {
+  if (age < ageMinors) {
     priceDiscounted = priceTicket - (priceTicket * discountMinors) / 100;
-  } else if (userAge > ageSenior) {
+  } else if (age > ageSenior) {
     priceDiscounted = priceTicket - (priceTicket * discountSenior) / 100;
   }
 
-  console.log(priceDiscounted.toFixed(2));
-}
+  console.log(priceDiscounted);
+});
