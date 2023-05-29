@@ -32,6 +32,8 @@ const generates = document.getElementById("generates");
 const cancel = document.getElementById("cancel");
 const discountedPlaceholder = document.getElementById("price-discounted");
 const namePlaceholder = document.getElementById("name");
+const carriagPlaceholder = document.getElementById("carriage");
+const codeCpPlaceholder = document.getElementById("code-cp");
 
 // 1. 2. 3. Ask Km, Age, Name
 
@@ -81,9 +83,19 @@ generates.addEventListener("click", function () {
 
     console.log(priceDiscounted);
 
+    // Bonus
+    const random = Math.random();
+
+    const max = 5;
+
+    let carriage = Math.floor(random * max) + 1;
+    let codeCp = Math.floor(random * (10000 + 1));
+
     // 8. Add the element on the html
     namePlaceholder.innerText = name;
     discountedPlaceholder.innerText = priceDiscounted.toFixed(2) + "€";
+    carriagPlaceholder.innerText = carriage;
+    codeCpPlaceholder.innerText = codeCp;
   }
 });
 
