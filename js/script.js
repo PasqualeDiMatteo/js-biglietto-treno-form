@@ -86,3 +86,11 @@ generates.addEventListener("click", function () {
     discountedPlaceholder.innerText = priceDiscounted.toFixed(2) + "€";
   }
 });
+
+// Btn Cancel
+
+cancel.addEventListener("click", function () {
+  document.getElementById("user-name").value = "";
+  document.getElementById("route").value = "";
+  document.getElementById("age").value = "";
+});
