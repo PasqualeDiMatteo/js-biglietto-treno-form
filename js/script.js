@@ -30,6 +30,8 @@ const kilometers = document.getElementById("route");
 const userAge = document.getElementById("age");
 const generates = document.getElementById("generates");
 const cancel = document.getElementById("cancel");
+const discountedPlaceholder = document.getElementById("price-discounted");
+const namePlaceholder = document.getElementById("name");
 
 // 2. 3. Ask Km, Age, Name
 
@@ -57,4 +59,8 @@ generates.addEventListener("click", function () {
   }
 
   console.log(priceDiscounted);
+
+  // Add the element on the html
+  namePlaceholder.innerText = name;
+  discountedPlaceholder.innerText = priceDiscounted.toFixed(2) + "€";
 });
