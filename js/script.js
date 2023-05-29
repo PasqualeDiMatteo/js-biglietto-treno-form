@@ -64,7 +64,7 @@ generates.addEventListener("click", function () {
 
   if (!age || age < 0 || age > 104) {
     isValid = false;
-    error += "You must enter an age ranging from 1 to 104.";
+    error += "The field must be complete";
   }
   //5. 6. 7. Calculate the Ticket Price
 
