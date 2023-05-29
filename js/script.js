@@ -18,7 +18,7 @@ console.log("JSOK");
 
 */
 
-// 1. Costants
+// 0. Costants
 
 const priceKm = 0.21;
 const ageSenior = 65;
@@ -33,7 +33,7 @@ const cancel = document.getElementById("cancel");
 const discountedPlaceholder = document.getElementById("price-discounted");
 const namePlaceholder = document.getElementById("name");
 
-// 2. 3. Ask Km, Age, Name
+// 1. 2. 3. Ask Km, Age, Name
 
 generates.addEventListener("click", function () {
   const name = userName.value.trim();
@@ -45,22 +45,44 @@ generates.addEventListener("click", function () {
   const age = parseInt(userAge.value);
   console.log(age);
 
-  // Calculate the Ticket Price
+  // 4. Validation
+  let isValid = true;
+  let error = null;
 
-  let priceTicket = km * priceKm;
-  console.log(priceTicket);
-
-  let priceDiscounted = priceTicket;
-
-  if (age < ageMinors) {
-    priceDiscounted = priceTicket - (priceTicket * discountMinors) / 100;
-  } else if (age > ageSenior) {
-    priceDiscounted = priceTicket - (priceTicket * discountSenior) / 100;
+  if (!name) {
+    isValid = false;
+    error = "Incorrect field.\n";
   }
 
-  console.log(priceDiscounted);
+  if (!km) {
+    isValid = false;
+    error += "Km must be a number greater than 0.\n";
+  }
 
-  // Add the element on the html
-  namePlaceholder.innerText = name;
-  discountedPlaceholder.innerText = priceDiscounted.toFixed(2) + "€";
+  if (!age || age < 0 || age > 104) {
+    isValid = false;
+    error += "You must enter an age ranging from 1 to 104.";
+  }
+  //5. 6. 7. Calculate the Ticket Price
+
+  if (!isValid) {
+    alert(error);
+  } else {
+    let priceTicket = km * priceKm;
+    console.log(priceTicket);
+
+    let priceDiscounted = priceTicket;
+
+    if (age < ageMinors) {
+      priceDiscounted = priceTicket - (priceTicket * discountMinors) / 100;
+    } else if (age > ageSenior) {
+      priceDiscounted = priceTicket - (priceTicket * discountSenior) / 100;
+    }
+
+    console.log(priceDiscounted);
+
+    // 8. Add the element on the html
+    namePlaceholder.innerText = name;
+    discountedPlaceholder.innerText = priceDiscounted.toFixed(2) + "€";
+  }
 });
