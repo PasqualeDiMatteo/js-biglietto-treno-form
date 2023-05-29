@@ -34,6 +34,7 @@ const discountedPlaceholder = document.getElementById("price-discounted");
 const namePlaceholder = document.getElementById("name");
 const carriagPlaceholder = document.getElementById("carriage");
 const codeCpPlaceholder = document.getElementById("code-cp");
+const cardTicket = document.getElementById("card-ticket");
 
 // 1. 2. 3. Ask Km, Age, Name
 
@@ -96,6 +97,15 @@ generates.addEventListener("click", function () {
     discountedPlaceholder.innerText = priceDiscounted.toFixed(2) + "€";
     carriagPlaceholder.innerText = carriage;
     codeCpPlaceholder.innerText = codeCp;
+
+    // Add display Block and None
+
+    const isNone = cardTicket.classList.contains("d-none");
+
+    if (isNone) {
+      cardTicket.classList.remove("d-none");
+      cardTicket.classList.add("d-block");
+    }
   }
 });
 
