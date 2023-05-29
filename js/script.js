@@ -34,14 +34,14 @@ const cancel = document.getElementById("cancel");
 // 2. 3. Ask Km, Age, Name
 
 generates.addEventListener("click", function () {
-  const name = userName.value;
+  const name = userName.value.trim();
   console.log("il nome è: " + name);
 
-  const km = kilometers.value;
-  console.log("La tratta è di: " + km + "km");
+  const km = parseInt(kilometers.value);
+  console.log(km);
 
-  const age = userAge.value;
-  console.log("Anni: " + age);
+  const age = parseInt(userAge.value);
+  console.log(age);
 
   // Calculate the Ticket Price
 
